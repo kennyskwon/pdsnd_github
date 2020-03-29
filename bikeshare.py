@@ -209,8 +209,9 @@ def user_stats(df, city):
 def raw_data(df, mark_place):
     print("\nYou opted to view raw data.")
 
+    #Shortened prompt statement
     if mark_place > 0:
-        last_place = choice("\nWould you like to resume from last time?"
+        last_place = choice("\nStart from where you left off?"
                             "\n [y] Yes\n [n] No\n\n>")
         if last_place == 'n':
             mark_place = 0
