@@ -5,7 +5,7 @@ This repository was created on March 28, 2020.
 Programming for Data Science Nanodegree
 
 ### Description
-This repository contains work I've completed as a part of my coursework in this nanodegree, specifically using Python and Git.
+This repository contains work completed during this nanodegree, specifically using Python and Git.
 
 ### Files used
 The files used to run the bikeshare.py program are:
