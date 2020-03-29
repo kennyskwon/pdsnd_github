@@ -1,10 +1,13 @@
-### This repository was created on March 28, 2020.
+### Date created
+This repository was created on March 28, 2020.
 
-### Programming for Data Science Nanodegree
+### Project Title
+Programming for Data Science Nanodegree
 
-### This project is created as a place to post the work I've completed through the nanodegree program
+### Description
+This repository contains work I've completed as a part of my coursework in this nanodegree.
 
-### Files Used
+### Files used
 The files used to run the bikeshare.py program are:
 	washington.csv
 	new_york_city.csv
