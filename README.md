@@ -13,3 +13,6 @@ The files used to run the bikeshare.py program are:
 	new_york_city.csv
 	chicago.csv
 
+The files used for the Github project are:
+	.gitignore
+	README.md
