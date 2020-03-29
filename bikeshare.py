@@ -35,6 +35,7 @@ def choice(prompt, choices=('y', 'n')):
 def get_filters():
     print("\n\nLet's explore some US bikeshare data.\n")
 
+    #Added to allow for greater user control
     print("Please type 'end' at any time to exit the program.\n")
 
     while True:
