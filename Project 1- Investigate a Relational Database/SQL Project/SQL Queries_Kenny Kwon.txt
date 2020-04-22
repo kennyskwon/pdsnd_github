@@ -1,0 +1,55 @@
+/*Query 1 - query used for first insight */
+SELECT f.title AS film,
+       c.name AS category,
+       COUNT(r.rental_id) AS rental_count
+FROM rental r
+    JOIN inventory ON r.inventory_id = inventory.inventory_id
+    JOIN film f ON inventory.film_id = f.film_id
+    JOIN film_category ON f.film_id = film_category.film_id
+    JOIN category c ON film_category.category_id = c.category_id
+         AND c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
+WHERE c.name = 'Animation'
+GROUP BY 1, 2
+ORDER BY 1, 2;
+
+/*Query 2 - query used for second insight */
+SELECT sub.title,
+       sub.name,
+       sub.rental_duration,
+       NTILE(4) OVER(ORDER BY sub.rental_duration) as quartile
+  FROM (SELECT f.title AS title,
+			         c.name AS name,
+	  		       f.rental_duration AS rental_duration
+          FROM category c
+	             JOIN film_category ON c.category_id = film_category.category_id
+               AND c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
+               JOIN film f ON f.film_id = film_category.film_id) sub
+ORDER BY 2, 1;
+
+/*Query 3 - query used for third insight */
+SELECT sub.name,
+       sub.quartile,
+       count(*)
+  FROM (SELECT c.name AS name,
+	  		       f.rental_duration,
+               NTILE(4) OVER (ORDER BY f.rental_duration) AS quartile
+          FROM category c
+	             JOIN film_category
+	              ON 	c.category_id = film_category.category_id
+                AND c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
+
+               JOIN film AS f
+	              ON f.film_id = film_category.film_id) sub
+GROUP BY 1, 2
+ORDER BY 1, 2;
+
+/*Query 4 - query used for fourth insight */
+SELECT DATE_PART('year', r.rental_date) AS year,
+       DATE_PART('month', r.rental_date) AS month,
+       s.store_id,
+       count(*)
+FROM store s
+JOIN staff ON s.store_id = staff.store_id
+JOIN rental r ON staff.staff_id = r.staff_id
+GROUP BY 1, 2, 3
+ORDER BY 1, 2;
