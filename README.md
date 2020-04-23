@@ -9,10 +9,10 @@ This repository contains work completed during this nanodegree, specifically usi
 
 ### Files used
 The files used to run the bikeshare.py program are:
-	washington.csv
-	new_york_city.csv
-	chicago.csv
+- washington.csv
+- new_york_city.csv
+- chicago.csv
 
 The files used for the Github project are:
-	.gitignore
-	README.md
+- .gitignore
+- README.md
